@@ -669,52 +669,185 @@ body.nav-open {
 .payment {
   background: var(--black-soft);
   color: var(--white);
+  position: relative;
+  overflow: hidden;
 }
 
 .payment .section-header h2 { color: var(--white); }
-.payment .section-header p { color: rgba(255, 255, 255, 0.6); }
+.payment .section-header p { color: rgba(255, 255, 255, 0.7); }
 
-.payment-cards {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
+.paybill-container {
+  max-width: 620px;
+  margin: 0 auto 2rem;
+}
+
+.paybill-card {
+  background: linear-gradient(145deg, #18181b, #101012);
+  border: 1.5px solid rgba(212, 175, 55, 0.35);
+  border-radius: var(--radius);
+  padding: 2.25rem 2.5rem;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+
+.paybill-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #10b981, var(--gold), #10b981);
+}
+
+.paybill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #34d399;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 0.35rem 0.85rem;
+  border-radius: 50px;
   margin-bottom: 1.5rem;
 }
 
-.payment-card {
-  background: linear-gradient(145deg, #1e1e1e, #141414);
-  border: 2px solid var(--gold-dark);
-  border-radius: var(--radius);
-  padding: 2.5rem 3rem;
-  text-align: center;
-  min-width: min(260px, 100%);
-  max-width: 100%;
+.mpesa-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
 }
 
-.payment-label {
-  display: block;
-  font-size: 0.85rem;
-  letter-spacing: 0.1em;
+.paybill-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.paybill-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 12px;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.6rem;
+}
+
+.paybill-type {
+  font-size: 0.8rem;
   text-transform: uppercase;
+  letter-spacing: 0.08em;
   color: var(--gold);
+  font-weight: 600;
+}
+
+.paybill-code {
+  font-size: clamp(1.8rem, 5vw, 2.2rem);
+  font-weight: 700;
+  color: var(--white);
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+}
+
+.btn-paybill-copy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 100%;
+  padding: 0.55rem 0.85rem;
+  font-size: 0.82rem;
+  border-radius: 8px;
+}
+
+.paybill-verify {
+  background: rgba(212, 175, 55, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-left: 3px solid var(--gold);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 0.88rem;
+  color: var(--gold-light);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.verify-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+  font-weight: 700;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+.paybill-verify strong {
+  color: var(--white);
+}
+
+.paybill-steps {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.paybill-steps h4 {
+  font-size: 0.92rem;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   margin-bottom: 0.75rem;
 }
 
-.payment-number {
-  display: block;
-  font-size: clamp(1.6rem, 7vw, 2.5rem);
-  font-weight: 700;
-  color: var(--gold-light);
-  letter-spacing: 0.08em;
-  margin-bottom: 1.25rem;
-  font-family: 'Playfair Display', serif;
+.paybill-steps ol {
+  padding-left: 1.25rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.paybill-steps strong {
+  color: var(--white);
+}
+
+.paybill-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  padding-top: 0.5rem;
 }
 
 .payment-note {
   text-align: center;
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.88rem;
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+  .paybill-card { padding: 1.5rem 1.25rem; }
+  .paybill-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .paybill-actions .btn { width: 100%; }
 }
 
 /* ===== Book ===== */

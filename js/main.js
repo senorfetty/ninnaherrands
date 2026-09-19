@@ -99,10 +99,23 @@
     btn.addEventListener('click', async () => {
       const value = btn.dataset.copy;
       const label = btn.dataset.label || 'Number';
+      const originalHTML = btn.innerHTML;
+
+      const triggerCopiedState = () => {
+        btn.innerHTML = '✓ Copied!';
+        btn.style.borderColor = '#10b981';
+        btn.style.color = '#34d399';
+        setTimeout(() => {
+          btn.innerHTML = originalHTML;
+          btn.style.borderColor = '';
+          btn.style.color = '';
+        }, 2000);
+      };
 
       try {
         await navigator.clipboard.writeText(value);
         showToast(`${label} copied: ${value}`);
+        triggerCopiedState();
       } catch {
         const textarea = document.createElement('textarea');
         textarea.value = value;
@@ -111,6 +124,7 @@
         document.execCommand('copy');
         document.body.removeChild(textarea);
         showToast(`${label} copied: ${value}`);
+        triggerCopiedState();
       }
     });
   });
@@ -151,4 +165,11 @@
       ? '0 4px 24px rgba(0,0,0,0.3)'
       : 'none';
   });
+
+  // Dynamic footer year
+  var year = new Date().getFullYear();
+  var yearEl = document.getElementById('year');
+  if (yearEl) {
+    yearEl.textContent = year;
+  }
 })();
