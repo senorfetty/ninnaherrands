@@ -166,13 +166,14 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.85rem 0;
+  padding: 0.85rem 1.25rem;
 }
 
 .logo {
   display: flex;
   flex-direction: column;
   line-height: 1.1;
+  padding-left: 0.25rem;
 }
 
 .logo-script {
@@ -186,6 +187,7 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.6);
+  white-space: nowrap;
 }
 
 .nav-links {
@@ -953,6 +955,10 @@ a.contact-item:hover {
 
   .errand-list { grid-template-columns: 1fr; }
 
+  .nav {
+    padding: 0.85rem 1.25rem;
+  }
+
   .nav-toggle { display: flex; }
 
   .nav-drawer-header {
@@ -969,6 +975,7 @@ a.contact-item:hover {
     display: flex;
     flex-direction: column;
     line-height: 1.1;
+    padding-left: 0.25rem;
   }
 
   .drawer-brand .logo-script {
@@ -981,6 +988,7 @@ a.contact-item:hover {
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.6);
+    white-space: nowrap;
   }
 
   .nav-close {
@@ -1065,6 +1073,10 @@ a.contact-item:hover {
 }
 
 @media (max-width: 600px) {
+  .nav { padding: 0.75rem 1rem; }
+  .logo { padding-left: 0.25rem; }
+  .logo-script { font-size: 1.65rem; }
+  .logo-tag { font-size: 0.58rem; letter-spacing: 0.08em; }
   .section { padding: 3.5rem 0; }
   .payment-card { padding: 2rem; min-width: auto; width: 100%; }
   .product-grid { grid-template-columns: 1fr; }
